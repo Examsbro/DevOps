@@ -1,5 +1,12 @@
 gcloud container clusters list
-gcloud container clusters create my-cluster --zone us-central1-a
+gcloud container clusters create my-cluster --zone us-central1-a (if not working
+gcloud container clusters create my-cluster \
+  --zone us-central1-a \
+  --num-nodes=2 \
+  --machine-type=e2-medium \
+  --disk-type=pd-standard \
+  --disk-size=50)
+
 gcloud container clusters get-credentials my-cluster --zone us-central1-a
 kubectl get nodes
 kubectl run --image tomcat webserver
