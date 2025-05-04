@@ -1,0 +1,4 @@
+kubectl get pods -n monitoring
+kubectl get svc -n monitoring
+Access prometheus and port forwarding
+kubectl port-forward svc/prometheus-kube-prometheus-prometheus 9090:9090 -n monitoring

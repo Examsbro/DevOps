@@ -1,0 +1,23 @@
+gcloud container clusters list
+gcloud container clusters create my-cluster --zone us-central1-a
+gcloud container clusters get-credentials my-cluster --zone us-central1-a
+kubectl get nodes
+kubectl run --image tomcat webserver
+kubectl get pods
+kubectl get pods -o wide
+vim pdf1.yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: jenkins-pod
+spec:
+  containers:
+  - name: myjenkins
+    image: jenkins/jenkins
+    ports:
+    - containerPort: 8080
+      hostPort: 8080
+gcloud compute firewall-rules create rule3 --allow tcp:8080
+kubectl create -f pdf1.yaml
+kubectl get pods -o wide
+kubectl get nodes -o wide
