@@ -1,0 +1,41 @@
+week 1
+
+Phase 1: To Do
+Objective: Identify and prioritize tasks or features to be developed.
+Key Actions:
+Define tasks clearly in a backlog.
+Prioritize tasks based on impact, urgency, and dependencies.
+Assign owners or teams to each task.
+Tools:
+Jira, Trello, GitHub Issues, or Asana.
+
+Phase 2: In Progress
+Objective: Actively work on tasks selected from the "To Do" phase.
+Key Actions:
+Begin coding or configuring based on task requirements.
+Update the task status to reflect ongoing work.
+Ensure team members collaborate effectively (e.g., stand-ups, pair programming).
+Best Practices:
+Use branches in version control systems for individual tasks (e.g., Git feature branches).
+Write unit tests alongside development.
+
+Phase 3: Code Review
+Objective: Validate the quality, functionality, and security of the code.
+Key Actions:
+Submit pull requests for peer review.
+Review code for adherence to standards, logic, and potential issues.
+Approve or request changes.
+Tools:
+GitHub Pull Requests, GitLab Merge Requests, Bitbucket.
+Automation:
+Integrate CI/CD pipelines to run tests automatically during reviews.
+
+Phase 4: Done
+Objective: Mark tasks as completed and deploy changes if necessary.
+Key Actions:
+Merge the approved code into the main branch.
+Deploy to staging or production environments.
+Monitor deployment and validate functionality.
+Post-Completion:
+Add documentation for the changes.
+Gather feedback from stakeholders or users.

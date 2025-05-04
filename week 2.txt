@@ -1,0 +1,62 @@
+week 2
+
+Step-1: Install Jdk-17 and set the java path in System environment
+
+Step-2: Download eclipse zipfile and extract the contents the all eclipse file
+
+Step-3:Create a Maven Project from eclipse as -> Click on File in left corner -> Click on new -> click on Maven Project and follow the given image steps. -> Click Next and Search org.apache.maven.archetypes and select webapp file. -> In a group id you can type anything like name and in aartefact id: you can type anything like your roll number -> Click Finish -> Type Y and Press enter\
+
+Step-4:now open your pom.xml file and add your dependencies (Given file, Copy and Paste)
+
+Step-5: Update your project once (Right click on Project -> click on Maven -> click on Update Project)
+
+Step-6: Download Apache tomcat v9 from Official website.
+
+Step-7: After Download the Apache tomcat, Extract the .zip file and paste your apache tomcat-9.0.98 folder in your folder
+
+Step-8: Now click on your project option in Menu -> Click on Properties -> Click on Targeted Runtime
+
+Step-9: Click on new or follow the given image
+
+Step-10: Select Apache Tomcat v9.0
+
+Step-11: Click on Browse and Select your Extracted file and then click on finish as given image
+
+Step-12: Now Click on help Menu ->click on Install new Software.
+
+Step-13: Click on Add and it will show a popup dialog box like given image -> In the place of Name type:TestNG -> In the place of Location type: https://testng.org/testng-eclipse-update-site/
+
+Step-14:Click on Add ->It will load atestNG Dependencies ->SelectTestNglike given Imageand then click Next. -> It will take 10 minute to update TestNG in our Project
+
+Step-15: After downloading the all dependencies it will show some file select all and click on next.
+
+Step-16: Accept Terms and condition and click on finish
+
+Step-17:After finish it will show restart option (Restart the Project) otherwise just update once of your project.
+
+Step-18: Now Login yourGitHub Account.
+
+Step-19: Create a New Repository and Copy your Repository and paste in notepad
+
+Step-20: After that Click on your Profile in Right corner -> Click on Setting.
+
+Step-21: It will show a new page, scroll down and select the developer setting ->click on personal access token ->select Token(Classic) ->click on Generate new token and select Generate new token(Classic) -> write your token name and select repo option and scroll down and click on Generate Token. (Follow the given Image).
+
+Step-22: After Generating the token copy the token id and paste in aNotePad.
+
+Step-23: Now come on your project and right click on yourproject ->Click on Team ->Click on Share Project.
+
+Step- 24: It will open a Dialog Box forGitHubSetup, select the option Use or create repository in parent folder of project - >Select your Project and Click on Create Repository and click on Finish.
+
+Step-25: After that again Right click on yourProject and select the Team -> click on Commit-> and stage your all file -> and Write a comment (i.e. First Commit) and click on Commit and push-> after that it show an error dialog ->click OK ->now again click on Push Head Button
+
+Step-26: After that again click on Push Head, it will show a dialog like given image, paste your Repository URL in URL section and type yourGitHub User Id and Password in User, password section -> Click on preview ->Again clickon Preview.
+
+Step-27:After that it will again show a user Id and Password option ->just type yourGithub id in user section and paste your Token id in Password section -> click on push ->one more time it will ask user id and password just repeat your last step with user id and token id ->now check your repository on github, your file is uploaded or not 
+
+Step-28:Now you have to create a simple java code in SRC File, so first open your project from file manager->open SRC - >Create two folder in SRC -> first name: java, second name: test ->now open test folder andcreate two more folder in test folder ->now come on your eclipse IDE and Update your project once -> After that create a java class file with a Statement “Hello World”in your SRC/TEST/java folder.
+
+Step-29:Now Push again your all unstage files in yourGitHubRepositorywith different version or Comment(Its just for Version Control).
+
+Step-30: Now Check again your Repository your recent file is uploaded or not with different version
+
