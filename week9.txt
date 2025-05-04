@@ -7,7 +7,7 @@ gcloud container clusters create my-cluster \
   --disk-type=pd-standard \
   --disk-size=50)
 
-gcloud container clusters get-credentials my-cluster --zone us-central1-a
+gcloud container clusters get-credentials my-cluster --zone=us-central1-a
 kubectl get nodes
 kubectl run --image tomcat webserver
 kubectl get pods
