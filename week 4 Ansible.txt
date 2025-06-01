@@ -4,7 +4,7 @@ Step-1: Login AWS and Create three Instances on AWS account using ubuntu OS and 
 Step-2: change the 2nd and 3rd instance name as a server1 and server2 (you can named anything) -> Edit inbound rules of 1st instance (ansible). Edit inbound rules like given details.
 Step-3: Now come on instance and select 1st instance (ansible) and click on connect. It will open a linux terminal -> type Clear command.
 Step-4: type command sudo apt update and hit enter.
-Step-5: type command sudo apt install ansibleand hit enter -> it will ask yes/no type yes and hit enter.
+Step-5: type command sudo apt install ansible and hit enter -> it will ask yes/no type yes and hit enter.
 Step-6: type command sudo apt install openssh-client and hit enter.
 Step-7: type command sudo apt install openssh-server and hit enter.
 Step-8: type command cd ~/.ssh/ and hit enter.
