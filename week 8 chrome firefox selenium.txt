@@ -1,0 +1,131 @@
+week 8 chrome firefox selenium
+
+Step1:- Download Selenium Grid
+Step2:-Download Chrome Driver
+Step3:-Download Gecko Driver
+Step 4:-Put all drivers one folder
+Step 5:-Run hub use following command and node also separate cmd. In cmd change directory where available all drivers
+1. java -jar selenium-server-4.29.0.jar hub 
+2. java -jar selenium-server-4.29.0.jar node --detect-drivers true 
+Also run chrome using ip address path it will generate after running hub and verify
+Step 6:-Open Eclipse Attach Apache Tomcat and TestNG
+1. Store Apache and eclipse folders only single folder and lunch Eclipse same folder
+2.Create maven project goto FileNewMaven Project SelectNextselect org.apache.maven.archetypes select webappEnter Group Id:week7 ArtifactId:selenium Package:warFinish. Enter Y you get Build Success in console.
+3. Open Pom.xml copy paste below code this all I added dependies and plugins. Next Right click ProjectMavenUpdate projectok.
+(Note:If you not update every changes it will not save.)
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
+                             http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>DevOps</groupId>
+    <artifactId>MyDevPipeline</artifactId>
+    <packaging>war</packaging>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>MyDevPipeline Maven Webapp</name>
+    <url>http://maven.apache.org</url>
+
+    <dependencies>
+        <!-- JUnit for unit testing -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>3.8.1</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- Servlet API -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>3.1.0</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- Selenium Server -->
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-server</artifactId>
+            <version>3.141.59</version>
+        </dependency>
+
+        <!-- TestNG framework -->
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>6.14.3</version> <!-- Consider updating to 7.11.0 -->
+            <scope>test</scope>
+        </dependency>
+
+        <!-- WebDriverManager for Selenium -->
+        <dependency>
+            <groupId>io.github.bonigarcia</groupId>
+            <artifactId>webdrivermanager</artifactId>
+            <version>5.3.0</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <finalName>MyDevPipeline</finalName>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-clean-plugin</artifactId>
+                    <version>3.4.0</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-install-plugin</artifactId>
+                    <version>3.1.2</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-deploy-plugin</artifactId>
+                    <version>3.1.2</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+
+</project>
+4.Adding Apache tomcat server
+Go to ProjectPropertiesMavenTargeted Runtimesnewselect apache tomcat 9nextbrowse apache folder addressfinishclick check box apache 9 and applyapply and close.
+(Note:-because running srcindex.js file running purpose if you not adding it will show errors.)
+5. Adding TestNG in Eclipse.
+Go to helpInstall New SoftwareAddEnter Name:TestNG, Location:https://testng.org/testing-eclipse-update-site/Add.
+Select TestNG check boxNextNextI acceptFinish
+Trust SelectedTrust Selected.
+6.Create Folder inside src test inside java.java folder select build path current folder.Right click that foldernewothersclassnextgive package name and class nameok
+Java file created copy paste below code.change hub address must and should.
+Same page right clickrunTestNG Finally its run test passes.
+SeleniumGridDemo.java
+package com.testautomation.grid;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
+import org.testng.annotations.Test;
+import java.net.URL;
+public class SeleniumGridDemo {
+@Test
+public void runTestOnChrome() throws Exception {
+DesiredCapabilities capabilities = DesiredCapabilities.chrome();
+WebDriver driver = new RemoteWebDriver(new URL(" http://172.16.226.24:4444/wd/hub"), capabilities);
+driver.get("https://www.google.com");
+System.out.println("Page title on Chrome: " + driver.getTitle());
+driver.quit();
+}
+@Test
+public void runTestOnFirefox() throws Exception {
+DesiredCapabilities capabilities = DesiredCapabilities.firefox();
+WebDriver driver = new RemoteWebDriver(new URL(" http://172.16.226.24:4444/wd/hub"), capabilities);
+driver.get("https://www.google.com");
+System.out.println("Page title on Firefox: " + driver.getTitle());
+driver.quit();
+}
+}
+
+	
