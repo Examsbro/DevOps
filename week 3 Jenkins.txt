@@ -1,0 +1,43 @@
+week 3 Jenkins
+
+Step-1: Search AWS Free Tier Account in any Browser and Create an Account. (if you have already an account then leave the steps)
+Step-2: After Creating the Account, Just Login as a ROOT User
+Step-3: After Login It will show your account -> Click on EC2 option -> Click on Launch Instance
+Step-4: After Clicking on Launch Instance It will ask Instance Name and Other things -> Write Instance Name as Jenkins -> Select Application and IOS Image as Ubuntu ->Scroll Down and Come on Instance Type Option and Select t2.Medium -> Now Come in Key Pair(Login) Section and Click on Create New Key Pair -> Write your Key Pair Name as Exp3 -> Select RSA -> Select .pem-> Click on Create Key Pair.
+Step-5: After Click on Create Key Pair it will download aExp3.pem file ->After that in Right Side we have a Option Number of Instances Select 1 -> Click on Launch Instances (It will take some time and will create an instance).
+Step-6: After that Refresh the page -> Select the Created Instance -> Click on Security.
+Step-7: After Clicking on Security -> It Will Show a Blue Link name as Security Group -> Click on that blue Link it will Open a Page -> Click On Edit Inbounds rule -> Click on Add Rule -> Add one Rule HTTP and Source type Anywhere IPV4 ->Addone More Rule Custom TCP, port range 8080 and Source Anywhere IPV4 -> Click on Save Rule
+Step-7: After that click on Dashboard -> click on instance Running -> select Jenkins -> click on connect.
+Step-8: After that click on connect it will open a Linux terminal -> just type clearcommand and follow the setp-9 documents.
+Step-9: Now You have to Setup Jenkins -> Search Jenkins Document in Any Browser ->Click on first Jenkins link -> Click on Installing Jenkins -> click on Linux -> Click on Debian/Ubuntu -> After that it will show the Linux Command
+Step-10: Now Come on your MobaXtrem Application -> Type Clear and Hit Enter key ->it will clear your Command Screen -> Now copy the theLong Term Support release code till /dev/null -> Paste in your Linux Terminal and hit the Enter Key -> it will Download the Jenkins Support File
+
+code:-
+sudowget -O /usr/share/keyrings/jenkins-keyring.asc \
+https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key
+echo "deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc]" \
+https://pkg.jenkins.io/debian-stable binary/ | sudo tee \
+/etc/apt/sources.list.d/jenkins.list> /dev/null
+
+Step-11: Clear your Screen -> Now Update your Project Using Given Code.
+
+code:-sudoapt-get update
+
+Step-12: clear your screen ->Now Check Java version Using Command: java --version
+Step-13: if It Show Java Not Found then it show the option install Java -> so install java using given Command -> it will ask Y/N just type Y and hit Enter -> It will take some time to download java.
+
+code:- sudoaptinstall fontconfig openjdk-17-jre
+Step-14: After Downloading the Java, Clear your Screen using clear command -> Once again Update your Project Using Update Command (follow Step-14 command) -> now Install Jenkins Using Jenkins Command, i.e given code (It will ask again Y/N just type Y and Hit Enter) -> After Installing the Jenkins Once again Update your Project using Update Command Just Check Java and Jenkins Version Using (java –version and Jenkins –version Command)
+
+code:- Sudo apt-get install Jenkins
+Step-15: Now Enable the Jenkins Server Using Given Command
+Command: Sudo systemctl enable Jenkins
+Step-16: After Enable the Jenkins Server Start Jenkins Server Using Given Command
+Command: Sudo systemctl start Jenkins
+Step-17: After Starting the Jenkins Server Check Jenkins Server Status using Given Command. It will show the Status Active running ans show the status of memory, CPU etc.
+Command: Sudo systemctl status Jenkins
+Step-18: Now Open your Any Browser and Search the Jenkins Server using Instance IP and Custom Port Number (Ip= <your instance ip> port is 8080)follow the given snap
+Step-19: It will start the Jenkins Server, show some path with red colorand Ask the Administrator Password like Given Image
+Step-20: Copy the RED color path and Paste in your Linux Terminal followed by sudo cat command and hit the Enter it will show 64-bit Alpha-Nemuric code -> Copy that code and paste in the place of password in your browser -> click on continue option
+Step-21: After clicking on continue option it will show two option for installing the pluging-> Just click on installed suggested plugin -> it will take some time for install all plugins -> After installing all plugins, it will ask Creating an account usinguser ID and password so create an account using user id and password (fill all related field). -> Click on Save and Continue
+Step-22: After click on Save and continue -> it show some links and show the option Save & Finish -> Click on Save & Finish -> After that it show Jenkins in Ready and show a option Start using Jenkins -> just click on it -> It will open a Jenkins Dashboard.
