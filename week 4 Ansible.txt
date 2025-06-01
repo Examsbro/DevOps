@@ -1,0 +1,52 @@
+week 4 Ansible
+
+Step-1: Login AWS and Create three Instances on AWS account using ubuntu OS and save key pair also.
+Step-2: change the 2nd and 3rd instance name as a server1 and server2 (you can named anything) -> Edit inbound rules of 1st instance (ansible). Edit inbound rules like given details.
+Step-3: Now come on instance and select 1st instance (ansible) and click on connect. It will open a linux terminal -> type Clear command.
+Step-4: type command sudo apt update and hit enter.
+Step-5: type command sudo apt install ansibleand hit enter -> it will ask yes/no type yes and hit enter.
+Step-6: type command sudo apt install openssh-client and hit enter.
+Step-7: type command sudo apt install openssh-server and hit enter.
+Step-8: type command cd ~/.ssh/ and hit enter.
+Step-9: type command ls and hit enter.
+Step-10: type command cd and hit enter.
+Step-11: type command cd - and hit enter. (it will show ssh path)
+Step-12: now againtype command cd and hit enter.
+Step-13: open puttygen software -> click on load -> select as all files -> select ansible.pem(your key pair) -> click on save and -> click on save private key and save the file with .ppk extension.
+Step-14: Now open winCP software -> it will ask for host name just copy and paste your ansibleinstance Ip-> In the place of user name type Ubuntu -> click on advance -> select authentication -> in the place of private key select your downloaded .ppk file - > click on Ok -> click on Login. (it will connect to your server and show a Ubuntu wincp window)
+Step-15: after connecting to your server it will show two directory (one is your local disk, another is ssh directory) -> right click in ssh directory -> click on new -> select directory -> create a folder name as key -> now select your .pemfile from left side local disk directory and drag in your key folder.
+Step-16: Now come on in your terminal -> type cd command and hit enter -> type lscommand hit enter, you will see key.
+Step-17: Now type cd key/ and hit enter, you will see ansible.pem
+Step-18: Now type cpansible.pem ~/.ssh/ command and hit enter -> after that type cd hit enter -> after that ls ~/.ssh/ and hit enter, you will see ansible.pem and authorized_key
+Step-19: Now create one more directory using mkdiransible-script command and hit enter-> select directory using cd ansible-script/ command and hit enter.
+Step-20: Now write vi inventory.ini command and hit enter -> it will open your Vim Editor -> copy the given command and paste in your Vim editor -> after that in the place of [server1-ip] copy and paste server1 instance public ip and in the place of [server2-ip] copy and paste server2 instance public ip -> after that save this vim editor using :wq! Command and hit enter
+command:-
+[webservers]
+server1 ansible_host=[server1-ip] ansible_user=ubuntuansible_ssh_private_key_file= /home/ubuntu/.ssh/ansible.pem
+server2 ansible_host=[server2-ip] ansible_user=ubuntuansible_ssh_private_key_file= /home/ubuntu/.ssh/ansible.pem
+Step-21: Now write the command vi playbook.ymland create a yml file -> it will again open your Vim editor -> copy and paste the given command in your vim editor after save and exit using command :wq! and hit enter.
+Command:
+- name: Install Nginx on AWS EC2
+  hosts: webservers
+  become: yes
+  tasks:
+    - name: Install Nginx
+      apt:
+        name: nginx
+        state: present
+      when: ansible_os_family == "Debian"
+
+    - name: Start and enable nginx server
+      systemd:
+        name: nginx
+        state: started
+        enabled: yes
+Step-22: Now you can check your .ini file and .yml file using cat inventory.ini command and cat playbook.ymlcommand.
+Step-23: Now type ansible-playbook –i playbook.ymlcommand and hit enter.
+Step-24: Now type ansible-playbook –i inventory.ini playbook.ymlcommand and hit enter -> it will ask for type yes and again yes and again yes or may be it will show server Unreachable.
+Step-25: Now type cd and hit enter -> after that cd ~/.ssh/ hit enter, you will see ansible.pemauthorized_key and known_hosts.
+Step-26: Now again run the command ansible-playbook –i inventory.ini playbook.yml. it will run your server or may be it will show again an error server unreachable.
+Step-27: If server is reachable is then check your server using server ip otherwise -> write command chmod 400 ~/.ssh/ansible.pemhit enter -> after that ls –l ~/.ssh/ and hit enter, it will show Ubuntu file.
+Step-28: Now again run the command ansible-playbook –i inventory.ini playbook.yml. nowit will run your server properly. After that you can check your server in any browser using server ip.
+
+
