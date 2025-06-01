@@ -1,0 +1,41 @@
+week 10 Docker
+
+Step 1:-Connecting AWS Instance Ubuntu using Mobaxterm
+1. Login AWS(Amazon Web Services) Account
+2. Lunch Instance name Docker
+3. Connect to Ubuntu or mobaxterm
+(note:-Follow this url for docker file and application—https://github.com/devisar/devopslab)
+Step 2:-Create Docker Hub Account and create repository in Docker Hub
+Step 3:-Install Docker and Check Status and Start Docker in mobaxterm
+1. sudo apt update -y
+2. sudo apt install docker.io –y
+3. sudo systemctl status docker(come outside use command ctl+z)
+Above status command is docker running means no problem if not run use command below to run
+4. sudo systemctl start docker Step 4:- Grant Access Why we give grant access means A easy way to verify your Docker installation is by running the below command
+docker run hello-world
+If the output says:
+This can mean two things,
+1. Docker deamon is not running.(start docker using “sudo systemctl start docker” ) 
+2. Your user does not have access to run docker commands. 
+Grant Access to your user to run docker commands 
+1. sudo usermod -aG docker ubuntu In the above command ubuntu is the name of the user, you can change the username appropriately.
+NOTE: : You need to logout and login back for the changes to be reflected. 
+2. Logout purpose use commands exit or logout 
+Again run command “docker run hello-world”
+Step 5:-Creating application and Docker file 
+1. Mkdir docker1 
+2. cd docker1 
+3. vim app.py print(“hello world”) 
+4. cat app.py
+5. vim Dockerfile (below pic commands write lab record) typing command vim before click “i” for insert data after completion Docker file commands save before click esc use :wq!
+Step 6:- Build and Check Docker image Syntax:- docker build –t dockerhub_username/repositoryname:tag . 
+1. docker build –t anu1308/dockerimage:latest .
+2. docker images
+Step 7:- Run your First Docker Container
+1. docker run -it anu1308/dockerimage:latest
+Output
+Hello World
+Step 8:-Docker Login
+1. docker login
+Step 9:- Push the Image to DockerHub and share it with the world
+1. docker push anu1308/dockerimage:latest
